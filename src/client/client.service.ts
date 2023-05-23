@@ -1,12 +1,14 @@
 import { Injectable } from '@nestjs/common';
-import { DbService } from 'src/db/db.service';
+import { Prisma } from '@prisma/client';
+import { DbService } from 'src/order/OrderDb.service';
+import { ClientDb } from './ClientDb.service';
 import { Client } from './dto/client.dto';
 
 @Injectable()
 export class ClientService {
-  constructor(private readonly db: DbService) {}
+  constructor(private readonly db: ClientDb) {}
 
-  async createUser(): Promise<Client> {
-    await thi;
+  async createUser(client_name: Prisma.ClientCreateInput): Promise<Client> {
+    return await this.db.createClient(client_name);
   }
 }

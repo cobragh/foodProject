@@ -17,15 +17,11 @@ export class DbService {
   }
 
   async getOrder(id: number) {
-    try {
-      const order = await this.prisma.order.findFirst({
-        where: {
-          id_order: id,
-        },
-      });
-      return order;
-    } catch (error) {
-      return error.message;
-    }
+    const order = await this.prisma.order.findFirst({
+      where: {
+        id_order: id,
+      },
+    });
+    return order;
   }
 }
