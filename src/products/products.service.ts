@@ -9,4 +9,7 @@ export class ProductsService {
   async addProduct(product: ProductsDto): Promise<ProductsDto> {
     return this.db.addProducts(product);
   }
+  async findAll() {
+    return await this.db.findAll();
+  }
 }

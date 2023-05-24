@@ -10,4 +10,20 @@ export class ClientService {
   async addClient(client: ClientDto): Promise<ClientDto> {
     return await this.db.addClient(client);
   }
+
+  async updateClient(client: ClientDto): Promise<ClientDto> {
+    return await this.db.updateClient(client);
+  }
+
+  async deleteClient(client: ClientDto): Promise<string> {
+    return await this.db.deleteClient(client);
+  }
+
+  async getClient(telefone: ClientDto): Promise<ClientDto> {
+    return await this.db.getClient(telefone);
+  }
+
+  async getAllClients(): Promise<Array<ClientDto>> {
+    return await this.db.getAllClients();
+  }
 }
