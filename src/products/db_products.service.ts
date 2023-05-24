@@ -14,4 +14,8 @@ export class DbProductsService {
   async findAll() {
     return await this.prisma.product.findMany();
   }
+
+  async findById(id: number): Promise<ProductsDto> {
+    return await this.prisma.product.findFirst({ where: { id: id } });
+  }
 }

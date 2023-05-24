@@ -12,4 +12,7 @@ export class ProductsService {
   async findAll() {
     return await this.db.findAll();
   }
+  async findOne(id: number): Promise<ProductsDto> {
+    return await this.db.findById(id);
+  }
 }
