@@ -15,6 +15,5 @@ export class OrderService {
         sum + order.price, 0;
       });
     });
-    console.log(price);
   }
 }
