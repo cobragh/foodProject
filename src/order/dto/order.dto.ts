@@ -1,9 +1,7 @@
+import { AnyObject } from 'mongoose';
+
 export interface OrderDto {
-  product: number;
+  product: number | string;
   quantity: number;
   observation?: String;
-}
-
-export interface OrderFullDto {
-  order: OrderDto[];
 }
