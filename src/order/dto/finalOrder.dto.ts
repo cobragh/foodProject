@@ -1,6 +1,6 @@
 import { OrderDto } from './order.dto';
 
 export interface FinalOrderDto {
-  products: {};
+  order: {};
   totalValue: string;
 }

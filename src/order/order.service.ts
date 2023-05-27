@@ -26,7 +26,7 @@ export class OrderService {
       productsInfo.push(orderOrder);
     }
     return {
-      products: productsInfo,
+      order: productsInfo,
       totalValue: `R$: ${totalValue.toFixed(2)}`,
     };
   }
