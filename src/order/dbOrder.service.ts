@@ -5,6 +5,5 @@ import { OrderDto, OrderDtoFull } from './dto/order.dto';
 @Injectable()
 export class DbOrderService {
   constructor(private readonly prisma: PrismaService) {}
-  async createOrder(data: OrderDto): Promise<OrderDtoFull> {
-  
+  async createOrder(data: OrderDto) {}
 }
