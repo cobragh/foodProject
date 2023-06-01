@@ -1,17 +1,23 @@
 import { Injectable } from '@nestjs/common';
+import { ClientService } from 'src/client/client.service';
+import { ClientDto } from 'src/client/dto/client.dto';
 import { ProductsService } from 'src/products/products.service';
 import { FinalOrderDto } from './dto/finalOrder.dto';
-import { OrderDto } from './dto/order.dto';
+import { OrderDto, OrderDtoFull } from './dto/order.dto';
 
 @Injectable()
 export class OrderService {
-  constructor(private readonly product: ProductsService) {}
-  async createOrderService(data: OrderDto[]): Promise<FinalOrderDto> {
+  constructor(
+    private readonly product: ProductsService,
+    private readonly client: ClientService,
+  ) {}
+  async createOrderService(data: OrderDtoFull): Promise<FinalOrderDto> {
     let totalValue = 0;
     let unitValue = 0;
     let orderOrder = {};
     let productsInfo = [];
-    for (let order of data) {
+    let client = null;
+    for (let order of data.order) {
       const product = await this.product.findOne(order.product as number);
       const price = product.price;
       const quantity = order.quantity;
@@ -24,9 +30,13 @@ export class OrderService {
         unitValue: `R$: ${unitValue.toFixed(2)}`,
       };
       productsInfo.push(orderOrder);
+      if (data.telefone != null) {
+        client = await this.client.getClient(data.telefone);
+      }
     }
     return {
       order: productsInfo,
+      client,
       totalValue: `R$: ${totalValue.toFixed(2)}`,
     };
   }

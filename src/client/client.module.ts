@@ -7,5 +7,6 @@ import { DbClientService } from './db_client.service';
 @Module({
   controllers: [ClientController],
   providers: [ClientService, PrismaService, DbClientService],
+  exports: [ClientService, DbClientService],
 })
 export class ClientModule {}

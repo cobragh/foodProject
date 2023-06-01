@@ -26,9 +26,14 @@ export class DbClientService {
     return 'Client delete successfully';
   }
 
-  async getClient(data: ClientDto): Promise<ClientDto> {
+  async getClient(telefone: string): Promise<ClientDto> {
     const client = await this.prisma.client.findFirst({
-      where: { telefone: data.telefone },
+      where: { telefone },
+      select: {
+        name: true,
+        endereco: true,
+        telefone: true,
+      },
     });
     return client;
   }

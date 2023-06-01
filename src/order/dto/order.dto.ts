@@ -3,5 +3,10 @@ import { AnyObject } from 'mongoose';
 export interface OrderDto {
   product: number | string;
   quantity: number;
-  observation?: String;
+  observation?: string;
+}
+
+export interface OrderDtoFull {
+  order: OrderDto[];
+  telefone?: string;
 }

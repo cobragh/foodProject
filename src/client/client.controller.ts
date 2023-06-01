@@ -13,8 +13,9 @@ export class ClientController {
   }
 
   @Post()
-  async getClientByTel(@Body() telefone: ClientDto): Promise<ClientDto> {
+  async getClientByTel(@Body() telefone: string): Promise<ClientDto> {
     const client = await this.clientService.getClient(telefone);
+
     return client;
   }
 

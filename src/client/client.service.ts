@@ -19,7 +19,7 @@ export class ClientService {
     return await this.db.deleteClient(client);
   }
 
-  async getClient(telefone: ClientDto): Promise<ClientDto> {
+  async getClient(telefone: string): Promise<ClientDto> {
     return await this.db.getClient(telefone);
   }
 
