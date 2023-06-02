@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { Client } from '@prisma/client';
 import { DbClientService } from './db_client.service';
 import { ClientDto } from './dto/client.dto';
 

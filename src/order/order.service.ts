@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { ClientService } from 'src/client/client.service';
-import { ClientDto } from 'src/client/dto/client.dto';
 import { ProductsService } from 'src/products/products.service';
 import { FinalOrderDto } from './dto/finalOrder.dto';
-import { OrderDto, OrderDtoFull } from './dto/order.dto';
+import { OrderDtoFull } from './dto/order.dto';
 
 @Injectable()
 export class OrderService {
@@ -15,9 +14,9 @@ export class OrderService {
     let totalValue = 0;
     let unitValue = 0;
     let orderOrder = {};
-    let productsInfo = [];
+    const productsInfo = [];
     let client = null;
-    for (let order of data.order) {
+    for (const order of data.order) {
       const product = await this.product.findOne(order.product as number);
       const price = product.price;
       const quantity = order.quantity;

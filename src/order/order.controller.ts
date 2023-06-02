@@ -1,6 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { FinalOrderDto } from './dto/finalOrder.dto';
-import { OrderDto, OrderDtoFull } from './dto/order.dto';
+import { OrderDtoFull } from './dto/order.dto';
 import { OrderService } from './order.service';
 
 @Controller('order')
